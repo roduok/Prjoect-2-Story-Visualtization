@@ -44,4 +44,7 @@ Base.metadata.create_all(engine)
 
 @app.route("/BusinessPatterns")
 def results():
-    return jsonify(engine.execute("SELECT * FROM businesspatterns").fetchall())
+    return jsonify(engine.execute("SELECT * FROM businesspatterns WHERE ZIPCODE =10001").fetchall())
+
+if __name__ == '__main__':
+	app.run()
