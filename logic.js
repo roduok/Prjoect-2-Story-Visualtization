@@ -7,18 +7,18 @@ var myMap = L.map("map", {
 // Adding tile layer
 var streetmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/tiles/256/{z}/{x}/{y}?" +
     "access_token=pk.eyJ1Ijoia2pnMzEwIiwiYSI6ImNpdGRjbWhxdjAwNG0yb3A5b21jOXluZTUifQ." +
-    "T6YbdDixkOBWH_k9GbS8JQ");
+    "T6YbdDixkOBWH_k9GbS8JQ").addTo(myMap);
 
 var darkmap = L.tileLayer("https://api.mapbox.com/styles/v1/mapbox/dark-v9/tiles/256/{z}/{x}/{y}?" +
     "access_token=pk.eyJ1Ijoia2pnMzEwIiwiYSI6ImNpdGRjbWhxdjAwNG0yb3A5b21jOXluZTUifQ." +
-    "T6YbdDixkOBWH_k9GbS8JQ");
+    "T6YbdDixkOBWH_k9GbS8JQ")
 
 // Link to GeoJSON
-
+var APILink = "https://raw.githubusercontent.com/roduok/Prjoect-2-Story-Visualtization/master/zipcodedata.geojson"
 var geojson;
 
 // Grabbing data with d3...
-d3.json("static/zipcodedata.geojson", function(data) {
+d3.json(APILink, function(data) {
 
   // Creating a new choropleth layer
   geojson = L.choropleth(data, {
